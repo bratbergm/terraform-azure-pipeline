@@ -2,7 +2,8 @@ name: Terraform PLan
 
 on:
   push:
-    branches: [master]
+    branches:
+      - main
 
 jobs:
   terraform:
