@@ -10,7 +10,6 @@
 📦terraform-azure-pipeline
  ┣ 📂.github
  ┃ ┗ 📂workflows
- ┃ ┃ ┣ 📜terraform-apply.yml
  ┃ ┃ ┗ 📜terraform-plan.yml
  ┣ 📂terraform
  ┃ ┣ 📂modules
