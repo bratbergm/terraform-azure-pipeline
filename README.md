@@ -60,33 +60,33 @@ A pull request into master can trigger a workflow which outputs the terraform pl
 name: Terraform Plan
 
 on:
-	pull_request:
-		branches: [master]
-		
+  pull_request:
+    branches: [master]
+
 jobs:
-	terraform:
-		runs-on: ubuntu-latest
-		
-		env:
-          ARM_CLIENT_ID: ${{secrets.TF_ARM_CLIENT_ID}
-          ARM_CLIENT_SECRET: ${{secrets.TF_ARM_CLIENT_SECRET}}
-          ARM_SUBSCRIPTION_ID: ${{secrets.TF_ARM_SUBSCRIPTION_ID}}
-          ARM_TENANT_ID: ${{secrets.TF_ARM_TENANT_ID}}
+  terraform:
+    runs-on: ubuntu-latest
 
-        steps:							# add snyk or something here
-          - uses: actions/checkout@v2
+    env:
+      ARM_CLIENT_ID: ${{secrets.TF_ARM_CLIENT_ID}
+      ARM_CLIENT_SECRET: ${{secrets.TF_ARM_CLIENT_SECRET}}
+      ARM_SUBSCRIPTION_ID: ${{secrets.TF_ARM_SUBSCRIPTION_ID}}
+      ARM_TENANT_ID: ${{secrets.TF_ARM_TENANT_ID}}
 
-          - name: Setup Terraform
-            uses: hashicorp/setup-terraform@v1
+    steps:
+      - uses: actions/checkout@v2
 
-          - name: Terraform Init
-            run: terraform init
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v1
 
-          - name: Terraform Format
-            run: terraform fmt -check
+      - name: Terraform Init
+        run: terraform init
 
-          - name: Terraform Plan
-            run: terraform plan
+      - name: Terraform Format
+        run: terraform fmt -check
+
+      - name: Terraform Plan
+        run: terraform plan
 ```
 
 
