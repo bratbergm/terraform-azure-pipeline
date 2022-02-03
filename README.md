@@ -44,7 +44,6 @@ jobs:						# All the jobs in this workflow
           node-version: '14'
       - run: npm install -g bats # Tells the job to execute a command on the runner
       - run: bats -v
-
 ```
 
 
@@ -69,10 +68,10 @@ jobs:
 		runs-on: ubuntu-latest
 		
 		env:
-          ARM_CLIENT_ID: <client-id>
+          ARM_CLIENT_ID: ${{secrets.TF_ARM_CLIENT_ID}
           ARM_CLIENT_SECRET: ${{secrets.TF_ARM_CLIENT_SECRET}}
-          ARM_SUBSCRIPTION_ID: <subscription-id>
-          ARM_TENANT_ID: <tenant-id>
+          ARM_SUBSCRIPTION_ID: ${{secrets.TF_ARM_SUBSCRIPTION_ID}}
+          ARM_TENANT_ID: ${{secrets.TF_ARM_TENANT_ID}}
 
         steps:							# add snyk or something 
           - uses: actions/checkout@v2
@@ -108,10 +107,10 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      ARM_CLIENT_ID: <client-id>
+      ARM_CLIENT_ID: ${{secrets.TF_ARM_CLIENT_ID}
       ARM_CLIENT_SECRET: ${{secrets.TF_ARM_CLIENT_SECRET}}
-      ARM_SUBSCRIPTION_ID: <subscription-id>
-      ARM_TENANT_ID: <tenant-id>
+	  ARM_SUBSCRIPTION_ID: ${{secrets.TF_ARM_SUBSCRIPTION_ID}}
+	  ARM_TENANT_ID: ${{secrets.TF_ARM_TENANT_ID}}
 
     steps:
       - uses: actions/checkout@v2
