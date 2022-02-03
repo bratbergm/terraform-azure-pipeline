@@ -127,8 +127,8 @@ jobs:
     env:
       ARM_CLIENT_ID: ${{secrets.TF_ARM_CLIENT_ID}
       ARM_CLIENT_SECRET: ${{secrets.TF_ARM_CLIENT_SECRET}}
-	    ARM_SUBSCRIPTION_ID: ${{secrets.TF_ARM_SUBSCRIPTION_ID}}
-	    ARM_TENANT_ID: ${{secrets.TF_ARM_TENANT_ID}}
+      ARM_SUBSCRIPTION_ID: ${{secrets.TF_ARM_SUBSCRIPTION_ID}}
+      ARM_TENANT_ID: ${{secrets.TF_ARM_TENANT_ID}}
 
     steps:
       - uses: actions/checkout@v2
