@@ -52,6 +52,41 @@ jobs:						# All the jobs in this workflow
 
 https://www.blendmastersoftware.com/blog/deploying-to-azure-using-terraform-and-github-actions
 
+
+### Terraform plan on push to master branch
+```yaml
+name: Terraform PLan
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+
+    env:
+      ARM_CLIENT_ID: ${{secrets.TF_ARM_CLIENT_ID}}
+      ARM_CLIENT_SECRET: ${{secrets.TF_ARM_CLIENT_SECRET}}
+      ARM_SUBSCRIPTION_ID: ${{secrets.TF_ARM_SUBSCRIPTION_ID}}
+      ARM_TENANT_ID: ${{secrets.TF_ARM_TENANT_ID}}
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v1
+
+      - name: Terraform Init
+        run: terraform init
+        working-directory: ./terraform
+
+      - name: Terraform Plan
+        run: terraform plan --var-file="test/test.tfvars"
+        working-directory: ./terraform
+```
+
 #### Terraform plan on a pull request
 
 A pull request into master can trigger a workflow which outputs the terraform plan:
