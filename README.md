@@ -35,7 +35,7 @@ https://docs.github.com/en/actions/learn-github-actions/understanding-github-act
 https://www.blendmastersoftware.com/blog/deploying-to-azure-using-terraform-and-github-actions
 
 
-### Terraform plan on push to master branch
+#### Terraform plan on push to master branch
 ```yaml
 name: Terraform PLan
 
@@ -78,7 +78,8 @@ name: Terraform Plan
 
 on:
   pull_request:
-    branches: [master]
+    branches:
+      - main
 
 jobs:
   terraform:
@@ -116,7 +117,8 @@ name: Terraform Apply
 
 on:
   push:
-    branches: [ master ]
+    branches:
+      - main
 
 jobs:
   terraform:
@@ -125,8 +127,8 @@ jobs:
     env:
       ARM_CLIENT_ID: ${{secrets.TF_ARM_CLIENT_ID}
       ARM_CLIENT_SECRET: ${{secrets.TF_ARM_CLIENT_SECRET}}
-	  ARM_SUBSCRIPTION_ID: ${{secrets.TF_ARM_SUBSCRIPTION_ID}}
-	  ARM_TENANT_ID: ${{secrets.TF_ARM_TENANT_ID}}
+	    ARM_SUBSCRIPTION_ID: ${{secrets.TF_ARM_SUBSCRIPTION_ID}}
+	    ARM_TENANT_ID: ${{secrets.TF_ARM_TENANT_ID}}
 
     steps:
       - uses: actions/checkout@v2
