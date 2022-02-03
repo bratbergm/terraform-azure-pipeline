@@ -32,17 +32,17 @@ https://docs.github.com/en/actions/learn-github-actions/understanding-github-act
 
 
 ```yaml
-name: learn-github-actions 			# Name that will appear in the GiHub repo
-on: [push]							# The trigger for this workflow. (push to any branch)
-jobs:								# All the jobs in this workflow
-  check-bats-version:				# Defines a job
-    runs-on: ubuntu-latest			# The runner
-    steps:							# The steps in this job
+name: learn-github-actions 	# Name that will appear in the GiHub repo
+on: [push]					# The trigger for this workflow. (push to any branch)
+jobs:						# All the jobs in this workflow
+  check-bats-version:		# Defines a job
+    runs-on: ubuntu-latest	# The runner
+    steps:					# The steps in this job
       - uses: actions/checkout@v2	# Checks out the repo onto the runner
       - uses: actions/setup-node@v2 
         with:
           node-version: '14'
-      - run: npm install -g bats	# Tells the job to execute a command on the runner
+      - run: npm install -g bats # Tells the job to execute a command on the runner
       - run: bats -v
 
 ```
