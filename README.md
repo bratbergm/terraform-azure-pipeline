@@ -85,7 +85,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      ARM_CLIENT_ID: ${{secrets.TF_ARM_CLIENT_ID}
+      ARM_CLIENT_ID: ${{secrets.TF_ARM_CLIENT_ID}}
       ARM_CLIENT_SECRET: ${{secrets.TF_ARM_CLIENT_SECRET}}
       ARM_SUBSCRIPTION_ID: ${{secrets.TF_ARM_SUBSCRIPTION_ID}}
       ARM_TENANT_ID: ${{secrets.TF_ARM_TENANT_ID}}
@@ -98,12 +98,11 @@ jobs:
 
       - name: Terraform Init
         run: terraform init
-
-      - name: Terraform Format
-        run: terraform fmt -check
+        working-directory: ./terraform
 
       - name: Terraform Plan
-        run: terraform plan
+        run: terraform plan --var-file="test/test.tfvars"
+        working-directory: ./terraform
 ```
 
 
@@ -137,9 +136,11 @@ jobs:
 
       - name: Terraform Init
         run: terraform init
+        working-directory: ./terraform
 
       - name: Terraform Apply
-        run: terraform apply -auto-approve
+        run: terraform apply -auto-approve --var-file="test/test.tfvars"
+        working-directory: ./terraform
 ```
 
 
