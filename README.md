@@ -1,10 +1,49 @@
-# terraform-azure-pipeline
-
-
-
 
 
 # GitHub Actions
+
+
+
+### Repository content
+
+```
+📦terraform-azure-pipeline
+ ┣ 📂.github
+ ┃ ┗ 📂workflows
+ ┃ ┃ ┣ 📜terraform-apply.yml
+ ┃ ┃ ┗ 📜terraform-plan.yml
+ ┣ 📂terraform
+ ┃ ┣ 📂modules
+ ┃ ┃ ┣ 📂1-vnet
+ ┃ ┃ ┃ ┣ 📜main.tf
+ ┃ ┃ ┃ ┣ 📜outputs.tf
+ ┃ ┃ ┃ ┗ 📜variables.tf
+ ┃ ┃ ┣ 📂2-vms
+ ┃ ┃ ┃ ┣ 📜main.tf
+ ┃ ┃ ┃ ┣ 📜outputs.tf
+ ┃ ┃ ┃ ┗ 📜variables.tf
+ ┃ ┃ ┗ 📂3-sql
+ ┃ ┃ ┃ ┣ 📜main.tf
+ ┃ ┃ ┃ ┣ 📜output.tf
+ ┃ ┃ ┃ ┗ 📜variables.tf
+ ┃ ┣ 📂prod
+ ┃ ┃ ┗ 📜prod.tfvars
+ ┃ ┣ 📂stage
+ ┃ ┃ ┗ 📜stage.tfvars
+ ┃ ┣ 📂test
+ ┃ ┃ ┗ 📜test.tfvars
+ ┃ ┣ 📜backend.tf
+ ┃ ┣ 📜backend_override.tf
+ ┃ ┣ 📜main.tf
+ ┃ ┣ 📜output.tf
+ ┃ ┗ 📜variables.tf
+ ┣ 📜.gitignore
+ ┗ 📜README.md
+```
+
+
+
+
 
 https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions 
 
@@ -166,8 +205,6 @@ jobs:
 - GitHub actions provisioning to Azure requires secrets stored in GitHub (?)
 
 - In Azure DevOps it's possible to use Key Vault to store secrets and pass them as variables in the terraform init command in the pipeline (https://julie.io/writing/terraform-on-azure-pipelines-best-practices/#tip-4---authenticate-with-service-principal-credentials-stored-in-azure-key-vault). This way there is no need to have secrets saved multiple places.
-
-
 
 
 
