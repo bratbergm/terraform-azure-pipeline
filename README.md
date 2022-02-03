@@ -73,7 +73,7 @@ jobs:
           ARM_SUBSCRIPTION_ID: ${{secrets.TF_ARM_SUBSCRIPTION_ID}}
           ARM_TENANT_ID: ${{secrets.TF_ARM_TENANT_ID}}
 
-        steps:							# add snyk or something 
+        steps:							# add snyk or something here
           - uses: actions/checkout@v2
 
           - name: Setup Terraform
