@@ -32,11 +32,9 @@
  ┃ ┣ 📂test
  ┃ ┃ ┗ 📜test.tfvars
  ┃ ┣ 📜backend.tf
- ┃ ┣ 📜backend_override.tf
  ┃ ┣ 📜main.tf
  ┃ ┣ 📜output.tf
  ┃ ┗ 📜variables.tf
- ┣ 📜.gitignore
  ┗ 📜README.md
 ```
 
