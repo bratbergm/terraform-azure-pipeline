@@ -10,7 +10,6 @@
 📦terraform-azure-pipeline
  ┣ 📂.github
  ┃ ┗ 📂workflows
- ┃ ┃ ┣ 📜terraform-apply.yml
  ┃ ┃ ┗ 📜terraform-plan.yml
  ┣ 📂terraform
  ┃ ┣ 📂modules
@@ -33,11 +32,9 @@
  ┃ ┣ 📂test
  ┃ ┃ ┗ 📜test.tfvars
  ┃ ┣ 📜backend.tf
- ┃ ┣ 📜backend_override.tf
  ┃ ┣ 📜main.tf
  ┃ ┣ 📜output.tf
  ┃ ┗ 📜variables.tf
- ┣ 📜.gitignore
  ┗ 📜README.md
 ```
 
